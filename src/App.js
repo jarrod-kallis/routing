@@ -5,21 +5,36 @@ import "./App.css";
 
 import Courses from "./containers/Courses/Courses";
 import Users from "./containers/Users/Users";
+import RouteNotFound from "./components/RouteNotFound/RouteNotFound";
 //import Course from "./containers/Course/Course";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavLink to="/users">Users</NavLink>
-        <NavLink to="/courses">Courses</NavLink>
+        {/* My way
+          <NavLink to="/users">Users</NavLink>
+          <NavLink to="/courses">Courses</NavLink> */}
+
+        {/* Course way */}
+        <nav>
+          <ul style={{ listStyle: 'none', margin: 'auto', padding: '0' }}>
+            <li style={{ margin: '10px', display: 'inline-block' }}>
+              <NavLink to="/users">Users</NavLink>
+            </li>
+            <li style={{ margin: '10px', display: 'inline-block' }}>
+              <NavLink to="/courses">Courses</NavLink>
+            </li>
+          </ul>
+        </nav>
 
         <Switch>
           <Route path="/users" component={Users} />
           {/* <Route path="/courses/:id" component={Course} /> */}
           <Route path="/courses" component={Courses} />
-          <Redirect from="/all-courses" to="/courses"/>
-          <Route render={() => <h1>Route not found</h1>}/>
+          <Redirect from="/all-courses" to="/courses" />
+          {/* <Route render={() => <h1>Route not found</h1>} /> */}
+          <Route component={RouteNotFound} />
         </Switch>
         {/* <ol style={{textAlign: 'left'}}>
           <li>Add Routes to load "Users" and "Courses" on different pages (by entering a URL, without Links)</li>

@@ -23,7 +23,7 @@ class Courses extends Component {
             return (
               <Link
                 to={{
-                  pathname: `/courses/${course.id}`,
+                  pathname: `${this.props.match.url}/${course.id}`,
                   search: `?title=${course.title}`
                 }}
                 key={course.id}
@@ -34,7 +34,7 @@ class Courses extends Component {
           })}
         </section>
 
-        <Route path="/courses/:id" component={Course} />
+        <Route path={`${this.props.match.url}/:id`} component={Course} />
       </div>
     );
   }

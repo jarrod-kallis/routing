@@ -5,6 +5,11 @@ class Course extends Component {
     const params = new URLSearchParams(this.props.location.search);
     const title = params.get("title");
 
+    // for (let param of params.entries()) {
+    //   console.log(param);
+    //   console.log(`${param[0]}: ${param[1]}`);
+    // }
+
     return (
       <div>
         <h1>{title}</h1>
