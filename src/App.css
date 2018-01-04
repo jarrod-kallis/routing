@@ -1,0 +1,13 @@
+.App {
+  margin: 10px;
+}
+
+.App a {
+  /*text-decoration: purple;*/
+  text-decoration-line: none;
+  margin: 20px;
+}
+
+.App a.active {
+  color: red;
+}
